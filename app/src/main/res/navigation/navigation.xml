@@ -34,7 +34,9 @@
         <action
             android:id="@+id/action_listingFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-
+        <argument
+            android:name="character"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

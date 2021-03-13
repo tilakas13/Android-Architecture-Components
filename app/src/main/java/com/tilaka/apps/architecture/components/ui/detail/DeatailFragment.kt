@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.R
@@ -20,8 +21,8 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        //return inflater.inflate(R.layout.detail_fragment, container, false)
+    ): View {
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
         binding = DetailFragmentBinding.inflate(inflater, container, false)
         return binding.root;
     }
@@ -30,6 +31,7 @@ class DetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val cartoonItem = navigationArgs.itemDetail;
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = cartoonItem.title
         viewModel = ViewModelProvider(this).get(DeatailViewModel::class.java)
 
         binding.title.text = cartoonItem.title

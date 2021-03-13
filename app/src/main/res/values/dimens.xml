@@ -12,4 +12,7 @@
     <dimen name="text_size_list">16sp</dimen>
     <dimen name="text_size_detail_content">16sp</dimen>
     <dimen name="spacing_detail">20dp</dimen>
+    <dimen name="padding_title">5dp</dimen>
+    <dimen name="margin_character_image">5dp</dimen>
+    <dimen name="image_height_character">260dp</dimen>
 </resources>

@@ -5,13 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.genre.GenreFragment">
 
-   <TextView
-       android:layout_centerInParent="true"
-       android:id="@+id/textGenre"
-       android:background="@color/purple_700"
-       android:layout_width="match_parent"
-       android:layout_height="100dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_characters"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="@dimen/dimen_progress_bar"
+        android:layout_height="@dimen/dimen_progress_bar"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/purple_700" />
 
 
 </RelativeLayout>
