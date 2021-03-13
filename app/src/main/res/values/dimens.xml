@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_card_item">10dp</dimen>
+    <dimen name="elevation_card_view">10dp</dimen>
+    <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="width_image_list">120dp</dimen>
+    <dimen name="margin_item_desc">10dp</dimen>
+    <dimen name="text_size_title_list_item">16sp</dimen>
+</resources>
