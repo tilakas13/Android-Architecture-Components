@@ -31,9 +31,9 @@ class GenreFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
 
-//        binding.textGenre.setOnClickListener {
-//            findNavController().navigate(R.id.action_genreFragment_to_listingFragment)
-//        }
+        binding.textGenre.setOnClickListener {
+            findNavController().navigate(R.id.action_genreFragment_to_listingFragment)
+        }
     }
 
 

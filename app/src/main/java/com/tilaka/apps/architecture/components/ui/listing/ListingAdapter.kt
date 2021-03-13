@@ -1,9 +1,9 @@
 package com.tilaka.apps.architecture.components.ui.listing
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.common.AppConstants
@@ -32,9 +32,10 @@ class ListingAdapter (private var listAnimes: List<SearchResultItem>) :
             .centerCrop()
             .into(holder.binding.imageAnime)
         holder.binding.containerItemAnime.setOnClickListener { itemView ->
-//            val actionDetailView =
-//                AnimeListFragmentDirections.actionItemClickToDetailAnimeFragment(itemAnimes);
-//            itemView.findNavController().navigate(actionDetailView)
+            val actionDetailView =
+                ListingFragmentDirections.actionListingFragmentToDetailFragment(itemAnimes);
+            itemView.findNavController().navigate(actionDetailView)
+
         }
 
     }
@@ -46,6 +47,10 @@ class ListingAdapter (private var listAnimes: List<SearchResultItem>) :
     fun addAnimeItems(animesItems: List<SearchResultItem>) {
         Logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
         this.listAnimes = animesItems
+    }
+
+    fun addListItems(listItems: List<SearchResultItem>) {
+        this.listAnimes = listItems
     }
 
     inner class AnimesViewHolder(var binding: ItemListAnimationBinding) :

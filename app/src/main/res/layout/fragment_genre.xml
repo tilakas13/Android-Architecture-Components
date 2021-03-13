@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.genre.GenreFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_animes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+   <TextView
+       android:layout_centerInParent="true"
+       android:id="@+id/textGenre"
+       android:background="@color/purple_700"
+       android:layout_width="match_parent"
+       android:layout_height="100dp"/>
 
 
 

@@ -19,23 +19,22 @@
 
             <ImageView
                 android:id="@+id/image_anime"
+                style="@style/title_bold"
                 android:layout_width="@dimen/width_image_list"
                 android:layout_height="@dimen/width_image_list"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/margin_item_desc"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
+                android:scaleType="fitXY" />
 
 
             <TextView
                 android:id="@+id/title"
+                style="@style/title_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/image_anime"
-                android:text="@string/app_name"
-                android:textSize="@dimen/text_size_title_list_item" />
+                android:layout_toEndOf="@id/image_anime" />
 
 
         </RelativeLayout>
