@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
-import com.tilaka.apps.architecture.components.data.model.SearchResultItem
 import com.tilaka.apps.architecture.components.databinding.ItemListCharacterBinding
-import com.tilaka.apps.architecture.components.ui.listing.ListingFragmentDirections
 
 class CharacterAdapter(private var listAnimes: List<Characters>) :
     RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
@@ -34,7 +32,7 @@ class CharacterAdapter(private var listAnimes: List<Characters>) :
             .into(holder.binding.imageCharacter)
         holder.binding.imageCharacter.setOnClickListener { itemView ->
             val actionDetailView =
-                GenreFragmentDirections.actionGenreFragmentToListingFragment(itemCharacter.name);
+                GenreFragmentDirections.actionGenreFragmentToListingFragment(itemCharacter.name)
             itemView.findNavController().navigate(actionDetailView)
 
         }
