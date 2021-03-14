@@ -14,7 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-
+    <style name="title_splash">
+        <item name="fontFamily">android:fontFamily="@font/antic"</item>
+        <item name="android:textSize">@dimen/text_size_splash</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
     <style name="title_list">
         <item name="fontFamily">android:fontFamily="@font/antic"</item>
         <item name="android:textSize">@dimen/text_size_list</item>

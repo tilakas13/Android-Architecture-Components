@@ -24,11 +24,9 @@ class CharacterAdapter(private var listAnimes: List<Characters>) :
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val itemCharacter = listAnimes[position]
-        Logger.printMessage(AppConstants.LOG_TAG, "in onBindViewHolder $itemCharacter.name")
         holder.binding.titleCharacter.text = itemCharacter.name
         Glide.with(holder.binding.imageCharacter.context)
             .load(itemCharacter.imageUrl)
-            .centerInside()
             .into(holder.binding.imageCharacter)
         holder.binding.imageCharacter.setOnClickListener { itemView ->
             val actionDetailView =
