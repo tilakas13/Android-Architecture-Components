@@ -11,8 +11,9 @@
     <dimen name="text_size_detail_title">18sp</dimen>
     <dimen name="text_size_list">16sp</dimen>
     <dimen name="text_size_detail_content">16sp</dimen>
-    <dimen name="spacing_detail">20dp</dimen>
+    <dimen name="spacing_detail_small">10dp</dimen>
+    <dimen name="spacing_detail_medium">20dp</dimen>
     <dimen name="padding_title">5dp</dimen>
     <dimen name="margin_character_image">5dp</dimen>
-    <dimen name="image_height_character">260dp</dimen>
+    <dimen name="image_height_character">180dp</dimen>
 </resources>

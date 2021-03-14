@@ -6,20 +6,19 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.tilaka.apps.architecture.components.R
+import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
 
-class SplashFragment : Fragment() {
+class SplashFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+       showSupportBar(false)
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 

@@ -30,7 +30,7 @@ class CharacterAdapter(private var listAnimes: List<Characters>) :
         holder.binding.titleCharacter.text = itemCharacter.name
         Glide.with(holder.binding.imageCharacter.context)
             .load(itemCharacter.imageUrl)
-            .fitCenter()
+            .centerInside()
             .into(holder.binding.imageCharacter)
         holder.binding.imageCharacter.setOnClickListener { itemView ->
             val actionDetailView =

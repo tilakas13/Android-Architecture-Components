@@ -1,31 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/spacing_detail"
+    android:layout_marginStart="@dimen/spacing_detail_medium"
+    android:layout_marginEnd="@dimen/spacing_detail_medium"
     android:orientation="vertical"
+    android:scrollbars="none"
     tools:context=".ui.detail.DetailFragment">
 
-    <TextView
-        android:id="@+id/title"
-        style="@style/title_bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <ImageView
-        android:id="@+id/image_cartoon"
-        android:layout_width="@dimen/detail_image_dimen"
-        android:layout_height="@dimen/detail_image_dimen"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/spacing_detail"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
-        android:id="@+id/detail"
-        style="@style/detail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_detail" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image_cartoon"
+            android:layout_width="@dimen/detail_image_dimen"
+            android:layout_height="@dimen/detail_image_dimen"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_detail_small"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_detail_small" />
+
+        <TextView
+            android:id="@+id/detail"
+            style="@style/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_detail_small" />
+
+        <TextView
+            android:id="@+id/rating"
+            style="@style/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_detail_small" />
+
+        <TextView
+            android:id="@+id/external_url"
+            style="@style/detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_detail_small"
+            android:autoLink="web" />
+    </LinearLayout>
+
+</ScrollView>

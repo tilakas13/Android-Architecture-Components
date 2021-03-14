@@ -29,7 +29,7 @@ class ListingAdapter (private var listAnimes: List<SearchResultItem>) :
         holder.binding.title.text = itemAnimes.title
         Glide.with(holder.binding.imageAnime.context)
             .load(  itemAnimes.imageUrl)
-            .centerCrop()
+            .circleCrop()
             .into(holder.binding.imageAnime)
         holder.binding.containerItemAnime.setOnClickListener { itemView ->
             val actionDetailView =

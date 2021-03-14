@@ -4,31 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.data.model.SearchResultItem
 import com.tilaka.apps.architecture.components.data.network.RetrofitClient
 import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.ListingFragmentBinding
-import com.tilaka.apps.architecture.components.ui.detail.DetailFragmentArgs
 
-class ListingFragment : Fragment() {
+class ListingFragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = ListingFragment()
-    }
 
     private lateinit var adapterAnimes: ListingAdapter
     private lateinit var binding: ListingFragmentBinding
     private lateinit var viewModel: ListingViewModel
-    private val animesList = ArrayList<SearchResultItem>()
-
+    private val animationList = ArrayList<SearchResultItem>()
 
     private val navigationArgs: ListingFragmentArgs by navArgs()
 
@@ -36,7 +30,7 @@ class ListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        showSupportBar(true)
         binding = ListingFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,12 +39,12 @@ class ListingFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val character = navigationArgs.character
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = character
+        setTitle(character)
         Logger.printMessage(AppConstants.LOG_TAG, "Character Selected --->$character")
         viewModel = ViewModelProvider(this).get(ListingViewModel::class.java)
         viewModel.setRepository(RetrofitClient.apiService)
         val layoutManager = LinearLayoutManager(activity)
-        adapterAnimes = ListingAdapter(animesList)
+        adapterAnimes = ListingAdapter(animationList)
         binding.recyclerviewAnimes.layoutManager = layoutManager
         binding.recyclerviewAnimes.adapter = adapterAnimes
 

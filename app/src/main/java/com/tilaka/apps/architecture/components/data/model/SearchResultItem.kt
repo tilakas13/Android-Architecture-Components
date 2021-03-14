@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 
 @Parcelize
@@ -46,11 +47,11 @@ data class SearchResultItem(
 
     @SerializedName("start_date")
     @Expose
-    var startDate: String? = null,
+    var startDate: Date? = null,
 
     @SerializedName("end_date")
     @Expose
-    var endDate: String? = null,
+    var endDate: Date? = null,
 
     @SerializedName("members")
     @Expose
