@@ -1,15 +1,18 @@
 package com.tilaka.apps.architecture.components.ui.genre
 
-import CharacterResponseModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.tilaka.apps.architecture.components.data.model.CharacterResponseModel
 import com.tilaka.apps.architecture.components.data.network.ApiService
 import com.tilaka.apps.architecture.components.data.network.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class GenreViewModel : ViewModel() {
-    private var data: CharacterResponseModel? = null
-    private lateinit var apiService: ApiService
+@HiltViewModel
+class GenreViewModel @Inject  constructor() : ViewModel() {
+    var data: CharacterResponseModel? = null
+    lateinit var apiService: ApiService
 
     fun setRepository(airlinesRepository: ApiService) {
         this.apiService = airlinesRepository

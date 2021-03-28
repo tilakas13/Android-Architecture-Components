@@ -1,7 +1,7 @@
 package com.tilaka.apps.architecture.components.data.network
 
-import CharacterResponseModel
-import com.tilaka.apps.architecture.components.data.model.SearchResultModel
+import com.tilaka.apps.architecture.components.data.model.CharacterResponseModel
+import com.tilaka.apps.architecture.components.data.model.CartoonSearchResultModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,7 +13,7 @@ interface ApiService {
 
 
     @GET("search/anime")
-    suspend fun getListAnimes(@Query("q") searchParam: String): SearchResultModel
+    suspend fun getListAnimes(@Query("q") searchParam: String): CartoonSearchResultModel
 
 
 }

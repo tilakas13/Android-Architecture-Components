@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
-import com.tilaka.apps.architecture.components.data.model.SearchResultItem
+import com.tilaka.apps.architecture.components.data.model.CartoonItemModel
 import com.tilaka.apps.architecture.components.databinding.ItemListAnimationBinding
 import com.tilaka.apps.architecture.components.ui.listing.ListingAdapter.AnimesViewHolder
 
-class ListingAdapter (private var listAnimes: List<SearchResultItem>) :
+class ListingAdapter (private var listAnimes: List<CartoonItemModel>) :
     RecyclerView.Adapter<AnimesViewHolder>() {
 
     @NonNull
@@ -44,12 +44,12 @@ class ListingAdapter (private var listAnimes: List<SearchResultItem>) :
         return listAnimes.size
     }
 
-    fun addAnimeItems(animesItems: List<SearchResultItem>) {
+    fun addAnimeItems(animesItems: List<CartoonItemModel>) {
         Logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
         this.listAnimes = animesItems
     }
 
-    fun addListItems(listItems: List<SearchResultItem>) {
+    fun addListItems(listItems: List<CartoonItemModel>) {
         this.listAnimes = listItems
     }
 

@@ -1,3 +1,5 @@
+package com.tilaka.apps.architecture.components.data.model
+
 import com.google.gson.annotations.SerializedName
 
 

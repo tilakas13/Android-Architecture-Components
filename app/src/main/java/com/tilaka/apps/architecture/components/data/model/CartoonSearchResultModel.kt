@@ -3,7 +3,7 @@ package com.tilaka.apps.architecture.components.data.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class SearchResultModel {
+class CartoonSearchResultModel {
     @SerializedName("request_hash")
     @Expose
     var requestHash: String? = null
@@ -18,7 +18,7 @@ class SearchResultModel {
 
     @SerializedName("results")
     @Expose
-    var results: List<SearchResultItem>? = null
+    var results: List<CartoonItemModel>? = null
 
     @SerializedName("last_page")
     @Expose

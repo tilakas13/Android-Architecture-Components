@@ -16,14 +16,14 @@ class SplashFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-       showSupportBar(false)
+        showSupportBar(false)
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
             Logger.printMessage(AppConstants.LOG_TAG, "Splash time out")
             findNavController().navigate(R.id.action_splashFragment_to_genreFragment)

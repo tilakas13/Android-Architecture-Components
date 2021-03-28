@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.base.BaseFragment
@@ -13,7 +13,7 @@ import com.tilaka.apps.architecture.components.databinding.DetailFragmentBinding
 class DetailFragment : BaseFragment() {
 
     private lateinit var binding: DetailFragmentBinding
-    private lateinit var viewModel: DeatailViewModel
+    private val viewModel: DeatailViewModel by viewModels()
     private val navigationArgs: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -25,11 +25,12 @@ class DetailFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val cartoonItem = navigationArgs.itemDetail
+        viewModel.setDetailModel(cartoonItem)
         setTitle(cartoonItem.title)
-        viewModel = ViewModelProvider(this).get(DeatailViewModel::class.java)
         binding.title.text = cartoonItem.title
         Glide.with(binding.imageCartoon.context)
             .load(cartoonItem.imageUrl)
