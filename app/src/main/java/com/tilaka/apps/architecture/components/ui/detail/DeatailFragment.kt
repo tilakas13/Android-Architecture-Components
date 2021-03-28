@@ -8,6 +8,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.base.BaseFragment
+import com.tilaka.apps.architecture.components.common.AppConstants
+import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.databinding.DetailFragmentBinding
 
 class DetailFragment : BaseFragment() {
@@ -27,8 +29,8 @@ class DetailFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val cartoonItem = navigationArgs.itemDetail
+        Logger.printMessage(AppConstants.LOG_TAG, cartoonItem.toString())
         viewModel.setDetailModel(cartoonItem)
         setTitle(cartoonItem.title)
         binding.title.text = cartoonItem.title

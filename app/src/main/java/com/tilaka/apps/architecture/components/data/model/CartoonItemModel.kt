@@ -59,5 +59,23 @@ data class CartoonItemModel(
 
     @SerializedName("rated")
     @Expose
-    var rated: String? = null
-) : Parcelable
+    var rated: String? = null,
+) : Parcelable {
+    override fun toString(): String {
+        return "CartoonItemModel(malId=$malId," +
+                "\n url=$url," +
+                "\n imageUrl=$imageUrl," +
+                "\n title=$title," +
+                "\n airing=$airing," +
+                "\n synopsis=$synopsis," +
+                "\n type=$type," +
+                "\n episodes=$episodes," +
+                "\n score=$score," +
+                "\n startDate=$startDate," +
+                "\n endDate=$endDate," +
+                "\n members=$members," +
+                "\n rated=$rated)"
+    }
+
+
+}

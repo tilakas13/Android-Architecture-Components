@@ -18,7 +18,6 @@ import com.tilaka.apps.architecture.components.databinding.ListingFragmentBindin
 
 class ListingFragment : BaseFragment() {
 
-
     private lateinit var adapterAnimes: ListingAdapter
     private lateinit var binding: ListingFragmentBinding
     private lateinit var viewModel: ListingViewModel
@@ -35,9 +34,8 @@ class ListingFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val character = navigationArgs.character
         setTitle(character)
         Logger.printMessage(AppConstants.LOG_TAG, "Character Selected --->$character")
@@ -72,7 +70,6 @@ class ListingFragment : BaseFragment() {
                 }
             }
         })
-
     }
 
     private fun updateListItems(listItems: List<CartoonItemModel>) {

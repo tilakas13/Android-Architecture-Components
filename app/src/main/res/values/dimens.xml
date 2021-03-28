@@ -5,7 +5,6 @@
     <dimen name="cardCornerRadius">5dp</dimen>
     <dimen name="width_image_list">120dp</dimen>
     <dimen name="margin_item_desc">10dp</dimen>
-    <dimen name="text_size_title_list_item">16sp</dimen>
     <dimen name="dimen_progress_bar">50dp</dimen>
     <dimen name="detail_image_dimen">300dp</dimen>
     <dimen name="text_size_detail_title">18sp</dimen>

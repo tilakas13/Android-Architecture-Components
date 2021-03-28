@@ -12,7 +12,7 @@ import com.tilaka.apps.architecture.components.data.model.CartoonItemModel
 import com.tilaka.apps.architecture.components.databinding.ItemListAnimationBinding
 import com.tilaka.apps.architecture.components.ui.listing.ListingAdapter.AnimesViewHolder
 
-class ListingAdapter (private var listAnimes: List<CartoonItemModel>) :
+class ListingAdapter(private var listAnimes: List<CartoonItemModel>) :
     RecyclerView.Adapter<AnimesViewHolder>() {
 
     @NonNull
@@ -24,16 +24,15 @@ class ListingAdapter (private var listAnimes: List<CartoonItemModel>) :
 
 
     override fun onBindViewHolder(holder: AnimesViewHolder, position: Int) {
-        val itemAnimes = listAnimes[position]
-        Logger.printMessage(AppConstants.LOG_TAG, "in onBindViewHolder $itemAnimes.name")
-        holder.binding.title.text = itemAnimes.title
+        val itemCartoon = listAnimes[position]
+        holder.binding.title.text = itemCartoon.title
         Glide.with(holder.binding.imageAnime.context)
-            .load(  itemAnimes.imageUrl)
+            .load(itemCartoon.imageUrl)
             .circleCrop()
             .into(holder.binding.imageAnime)
         holder.binding.containerItemAnime.setOnClickListener { itemView ->
             val actionDetailView =
-                ListingFragmentDirections.actionListingFragmentToDetailFragment(itemAnimes);
+                ListingFragmentDirections.actionListingFragmentToDetailFragment(itemCartoon);
             itemView.findNavController().navigate(actionDetailView)
 
         }

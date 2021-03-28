@@ -35,8 +35,8 @@ class GenreFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setTitle(getString(R.string.app_name))
         //viewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
         viewModel.setRepository(RetrofitClient.apiService)
@@ -69,8 +69,6 @@ class GenreFragment : BaseFragment() {
                 }
             }
         })
-
-
     }
 
     private fun updateListItems(listItems: List<Characters>) {
