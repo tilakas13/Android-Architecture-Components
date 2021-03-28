@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
-import com.tilaka.apps.architecture.components.data.model.SearchResultItem
+import com.tilaka.apps.architecture.components.data.model.CartoonItemModel
 import com.tilaka.apps.architecture.components.data.network.RetrofitClient
 import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.ListingFragmentBinding
@@ -22,7 +22,7 @@ class ListingFragment : BaseFragment() {
     private lateinit var adapterAnimes: ListingAdapter
     private lateinit var binding: ListingFragmentBinding
     private lateinit var viewModel: ListingViewModel
-    private val animationList = ArrayList<SearchResultItem>()
+    private val animationList = ArrayList<CartoonItemModel>()
 
     private val navigationArgs: ListingFragmentArgs by navArgs()
 
@@ -75,7 +75,7 @@ class ListingFragment : BaseFragment() {
 
     }
 
-    private fun updateListItems(listItems: List<SearchResultItem>) {
+    private fun updateListItems(listItems: List<CartoonItemModel>) {
         adapterAnimes.apply {
             addListItems(listItems)
             notifyDataSetChanged()

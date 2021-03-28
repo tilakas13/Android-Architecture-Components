@@ -1,26 +1,30 @@
 package com.tilaka.apps.architecture.components.ui.genre
 
-import Characters
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.tilaka.apps.architecture.components.R
 import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
+import com.tilaka.apps.architecture.components.data.model.Characters
 import com.tilaka.apps.architecture.components.data.network.RetrofitClient
 import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.FragmentGenreBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GenreFragment : BaseFragment() {
 
-    private lateinit var adapterCharacters: CharacterAdapter
+    lateinit var adapterCharacters: CharacterAdapter
     private lateinit var binding: FragmentGenreBinding
-    private lateinit var viewModel: GenreViewModel
+
+
+    val viewModel: GenreViewModel by viewModels()
     private val animesList = ArrayList<Characters>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +38,7 @@ class GenreFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setTitle(getString(R.string.app_name))
-        viewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(GenreViewModel::class.java)
         viewModel.setRepository(RetrofitClient.apiService)
 
 
@@ -50,7 +54,7 @@ class GenreFragment : BaseFragment() {
                         binding.progressBar.visibility = View.GONE
                         resource.data?.let { listAnims ->
 
-                                this.updateListItems(listAnims.characters)
+                            this.updateListItems(listAnims.characters)
 
                         }
                     }

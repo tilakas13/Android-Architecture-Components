@@ -5,5 +5,7 @@ This Sample is implemented using following Android components and third party Li
 * Model-View-ViewModel architecture 
 * Android Navigation component
 * View binding
+* Android Retrofit
+* Dagger Hilt
 * Glide
-* Android Retrofit 
+* Retrofit

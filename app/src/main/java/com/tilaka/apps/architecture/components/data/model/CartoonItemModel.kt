@@ -8,7 +8,7 @@ import java.util.*
 
 
 @Parcelize
-data class SearchResultItem(
+data class CartoonItemModel(
     @SerializedName("mal_id")
     @Expose
     var malId: Int? = null,

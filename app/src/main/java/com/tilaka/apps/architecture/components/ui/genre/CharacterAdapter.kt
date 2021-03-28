@@ -1,6 +1,5 @@
 package com.tilaka.apps.architecture.components.ui.genre
 
-import Characters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.NonNull
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
+import com.tilaka.apps.architecture.components.data.model.Characters
 import com.tilaka.apps.architecture.components.databinding.ItemListCharacterBinding
 
 class CharacterAdapter(private var listAnimes: List<Characters>) :
