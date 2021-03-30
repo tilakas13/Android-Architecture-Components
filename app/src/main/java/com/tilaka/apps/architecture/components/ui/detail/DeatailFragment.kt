@@ -11,7 +11,10 @@ import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.databinding.DetailFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class DetailFragment : BaseFragment() {
 
     private lateinit var binding: DetailFragmentBinding

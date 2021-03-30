@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -15,12 +16,16 @@ import com.tilaka.apps.architecture.components.data.model.CartoonItemModel
 import com.tilaka.apps.architecture.components.data.network.RetrofitClient
 import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.ListingFragmentBinding
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class ListingFragment : BaseFragment() {
 
     private lateinit var adapterAnimes: ListingAdapter
     private lateinit var binding: ListingFragmentBinding
-    private lateinit var viewModel: ListingViewModel
+    private val viewModel: ListingViewModel by viewModels()
     private val animationList = ArrayList<CartoonItemModel>()
 
     private val navigationArgs: ListingFragmentArgs by navArgs()
@@ -39,7 +44,6 @@ class ListingFragment : BaseFragment() {
         val character = navigationArgs.character
         setTitle(character)
         Logger.printMessage(AppConstants.LOG_TAG, "Character Selected --->$character")
-        viewModel = ViewModelProvider(this).get(ListingViewModel::class.java)
         viewModel.setRepository(RetrofitClient.apiService)
         val layoutManager = LinearLayoutManager(activity)
         adapterAnimes = ListingAdapter(animationList)
