@@ -16,11 +16,14 @@ import com.tilaka.apps.architecture.components.data.network.RetrofitClient
 import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.FragmentGenreBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class GenreFragment : BaseFragment() {
 
     lateinit var adapterCharacters: CharacterAdapter
+    @Inject
+    lateinit var logger: Logger
     private lateinit var binding: FragmentGenreBinding
 
 
@@ -50,7 +53,7 @@ class GenreFragment : BaseFragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "data loaded")
+                        logger.printMessage(AppConstants.LOG_TAG, "data loaded")
                         binding.progressBar.visibility = View.GONE
                         resource.data?.let { listAnims ->
 
@@ -59,11 +62,11 @@ class GenreFragment : BaseFragment() {
                         }
                     }
                     Status.ERROR -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "Status.ERROR ")
+                        logger.printMessage(AppConstants.LOG_TAG, "Status.ERROR ")
                         binding.progressBar.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "Status.LOADING")
+                        logger.printMessage(AppConstants.LOG_TAG, "Status.LOADING")
                         binding.progressBar.visibility = View.VISIBLE
                     }
                 }

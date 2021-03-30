@@ -10,9 +10,13 @@ import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.data.model.Characters
 import com.tilaka.apps.architecture.components.databinding.ItemListCharacterBinding
+import javax.inject.Inject
 
 class CharacterAdapter(private var listAnimes: List<Characters>) :
     RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+
+    @Inject
+    lateinit var logger: Logger
 
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
@@ -42,7 +46,7 @@ class CharacterAdapter(private var listAnimes: List<Characters>) :
     }
 
     fun addAnimeItems(animesItems: List<Characters>) {
-        Logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
+        logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
         this.listAnimes = animesItems
     }
 

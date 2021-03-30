@@ -4,9 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.tilaka.apps.architecture.components.data.network.ApiService
 import com.tilaka.apps.architecture.components.data.network.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class ListingViewModel() : ViewModel() {
+
+@HiltViewModel
+class ListingViewModel @Inject constructor() : ViewModel() {
 
     private lateinit var apiService: ApiService
 
