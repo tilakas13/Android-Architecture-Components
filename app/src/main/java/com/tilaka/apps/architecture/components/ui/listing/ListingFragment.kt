@@ -18,10 +18,14 @@ import com.tilaka.apps.architecture.components.data.network.Status
 import com.tilaka.apps.architecture.components.databinding.ListingFragmentBinding
 import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class ListingFragment : BaseFragment() {
+
+    @Inject
+    lateinit var logger: Logger
 
     private lateinit var adapterAnimes: ListingAdapter
     private lateinit var binding: ListingFragmentBinding
@@ -43,7 +47,7 @@ class ListingFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val character = navigationArgs.character
         setTitle(character)
-        Logger.printMessage(AppConstants.LOG_TAG, "Character Selected --->$character")
+        logger.printMessage(AppConstants.LOG_TAG, "Character Selected --->$character")
         viewModel.setRepository(RetrofitClient.apiService)
         val layoutManager = LinearLayoutManager(activity)
         adapterAnimes = ListingAdapter(animationList)
@@ -55,7 +59,7 @@ class ListingFragment : BaseFragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "data loaded")
+                        logger.printMessage(AppConstants.LOG_TAG, "data loaded")
                         binding.progressBar.visibility = View.GONE
                         resource.data?.let { listAnims ->
                             listAnims.results?.let { it1 ->
@@ -64,11 +68,11 @@ class ListingFragment : BaseFragment() {
                         }
                     }
                     Status.ERROR -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "Status.ERROR ")
+                        logger.printMessage(AppConstants.LOG_TAG, "Status.ERROR ")
                         binding.progressBar.visibility = View.GONE
                     }
                     Status.LOADING -> {
-                        Logger.printMessage(AppConstants.LOG_TAG, "Status.LOADING")
+                        logger.printMessage(AppConstants.LOG_TAG, "Status.LOADING")
                         binding.progressBar.visibility = View.VISIBLE
                     }
                 }

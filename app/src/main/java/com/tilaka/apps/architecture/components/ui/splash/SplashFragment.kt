@@ -11,8 +11,14 @@ import com.tilaka.apps.architecture.components.R
 import com.tilaka.apps.architecture.components.base.BaseFragment
 import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashFragment : BaseFragment() {
+
+    @Inject
+    lateinit var logger: Logger
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +31,7 @@ class SplashFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
-            Logger.printMessage(AppConstants.LOG_TAG, "Splash time out")
+            logger.printMessage(AppConstants.LOG_TAG, "Splash time out")
             findNavController().navigate(R.id.action_splashFragment_to_genreFragment)
         }, AppConstants.SPLASH_TIMEOUT)
     }

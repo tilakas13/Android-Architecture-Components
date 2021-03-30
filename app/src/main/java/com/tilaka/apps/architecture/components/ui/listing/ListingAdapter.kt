@@ -11,9 +11,13 @@ import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.data.model.CartoonItemModel
 import com.tilaka.apps.architecture.components.databinding.ItemListAnimationBinding
 import com.tilaka.apps.architecture.components.ui.listing.ListingAdapter.AnimesViewHolder
+import javax.inject.Inject
 
 class ListingAdapter(private var listAnimes: List<CartoonItemModel>) :
     RecyclerView.Adapter<AnimesViewHolder>() {
+
+    @Inject
+    lateinit var logger: Logger
 
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimesViewHolder {
@@ -44,7 +48,7 @@ class ListingAdapter(private var listAnimes: List<CartoonItemModel>) :
     }
 
     fun addAnimeItems(animesItems: List<CartoonItemModel>) {
-        Logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
+        logger.printMessage(AppConstants.LOG_TAG, "in addAnimeItems")
         this.listAnimes = animesItems
     }
 

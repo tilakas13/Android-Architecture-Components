@@ -12,10 +12,14 @@ import com.tilaka.apps.architecture.components.common.AppConstants
 import com.tilaka.apps.architecture.components.common.Logger
 import com.tilaka.apps.architecture.components.databinding.DetailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment() {
+
+    @Inject
+    lateinit var logger: Logger
 
     private lateinit var binding: DetailFragmentBinding
     private val viewModel: DeatailViewModel by viewModels()
@@ -33,7 +37,7 @@ class DetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val cartoonItem = navigationArgs.itemDetail
-        Logger.printMessage(AppConstants.LOG_TAG, cartoonItem.toString())
+        logger.printMessage(AppConstants.LOG_TAG, cartoonItem.toString())
         viewModel.setDetailModel(cartoonItem)
         setTitle(cartoonItem.title)
         binding.title.text = cartoonItem.title

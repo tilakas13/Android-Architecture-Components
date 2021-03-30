@@ -2,16 +2,15 @@ package com.tilaka.apps.architecture.components.common
 
 import android.util.Log
 import com.tilaka.apps.architecture.components.BuildConfig
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class Logger {
+@Singleton
+class Logger @Inject constructor() {
 
-    companion object {
-        fun printMessage(tagName: String, message: String) {
-            if (BuildConfig.DEBUG) {
-                Log.d(tagName, message)
-            }
+    fun printMessage(tagName: String, message: String) {
+        if (BuildConfig.DEBUG) {
+            Log.d(tagName, message)
         }
     }
-
-
 }
