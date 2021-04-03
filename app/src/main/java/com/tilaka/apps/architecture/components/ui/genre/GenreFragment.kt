@@ -27,7 +27,7 @@ class GenreFragment : BaseFragment() {
     private lateinit var binding: FragmentGenreBinding
 
 
-    val viewModel: GenreViewModel by viewModels()
+    private val viewModel: GenreViewModel by viewModels()
     private val animesList = ArrayList<Characters>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
